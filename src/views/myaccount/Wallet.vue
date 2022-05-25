@@ -5,7 +5,7 @@
     <div class="page-title">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-12  text-center">
             <h1 class="mb-0">My Wallet</h1>
             <h4 class="text-muted mb-0">
               Some information about our restaurant
@@ -92,13 +92,13 @@ import Headbar from '@/views/layouts/Headbar.vue'
 import Footer from '@/views/layouts/Footer.vue'
 import SildeBar from '@/views/myaccount/SildeBar.vue'
 import { getUserWallet } from '@/store/api'
-import //   BContainer,
-//   BRow,
-//   BCol,
-//   BForm,
-//   BFormGroup,
-//   BFormInput
-'bootstrap-vue'
+// import //   BContainer,
+// //   BRow,
+// //   BCol,
+// //   BForm,
+// //   BFormGroup,
+// //   BFormInput
+// 'bootstrap-vue'
 export default {
   name: 'Wallet',
   components: {

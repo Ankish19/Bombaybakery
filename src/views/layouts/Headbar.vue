@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-7">
-            <div class="module module-logo light ml-5 text-right">
+            <div class="module module-logo">
               <router-link to="/">
                 <img alt="Vue logo" src="@/assets/logo.png" class="main-logo" />
               </router-link>
@@ -41,19 +41,14 @@
               <router-link
                 class="btn btn-outline-light"
                 to="/myaccount"
-                v-if="user"
+                v-if="user || userVerify === true"
               >
                 <span class="order">My Account</span></router-link
               >
             </div>
           </div>
           <div class="col-md-2">
-            <a
-              href="#"
-              class="module module-cart right"
-              data-toggle="panel-cart"
-              @click="slideMinicart(classSlider)"
-            >
+            <router-link to="/checkout" class="module module-cart right">
               <span class="cart-icon">
                 <i class="ti ti-shopping-cart"></i>
                 <span class="notification d-block">{{
@@ -63,7 +58,7 @@
               <span class="cart-value"
                 >$<span>{{ orderTotal.toFixed(2) }}</span></span
               >
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
@@ -236,138 +231,122 @@
 </template>
 
 <script>
-/* eslint-disable */
-import { getSettings } from "@/store/api";
-import { getLocalStorage, tipTax } from "@/store/service";
+import { getSettings } from '@/store/api'
+import { getLocalStorage, tipTax } from '@/store/service'
 export default {
-  name: "header",
-  props: ["newCart", "cartshow"],
-  data() {
+  name: 'header',
+  props: ['newCart', 'cartshow'],
+  data () {
     return {
       user: [],
-      classSlider: "hide",
+      userVerify: '',
+      classSlider: 'hide',
       item: [],
       tipTax: {
         tips: {},
-        taxPercentage: {},
+        taxPercentage: {}
       },
       orderTotal: 0,
       taxes: [],
       taxTotal: 0,
-      totalAmount: 0,
-    };
+      totalAmount: 0
+    }
   },
   watch: {
-    newCart() {
+    newCart () {
       if (this.newCart) {
-        this.item = this.newCart;
-        this.orderTotal = 0;
-        this.taxTotal = 0;
-        this.totalAmount = 0;
-        this.getCalc();
+        this.item = this.newCart
+        this.orderTotal = 0
+        this.taxTotal = 0
+        this.totalAmount = 0
+        this.getCalc()
       }
     },
-    cartshow() {
-      this.slideMinicart(this.cartshow ? "show" : "hide");
-    },
+    cartshow () {
+      this.slideMinicart(this.cartshow ? 'show' : 'hide')
+    }
   },
-  mounted() {
-    this.getSetting();
-    this.showItem();
-    this.getCalc();
+  mounted () {
+    this.getSetting()
+    this.showItem()
+    this.getCalc()
+    const externalScript = document.createElement('script')
+    externalScript.setAttribute('src', '../js/core.js')
+    externalScript.setAttribute('type', 'text/javascript')
+    document.head.appendChild(externalScript)
   },
   methods: {
-    showItem() {
-      this.user = getLocalStorage("userData");
-      this.item = getLocalStorage("cart");
+    showItem () {
+      this.user = getLocalStorage('userData')
+      this.userVerify = getLocalStorage('userDataVerify')
+      this.item = getLocalStorage('cart')
     },
-    slideMinicart(event) {
-      if (event === "hide") {
-        this.classSlider = "show";
+    slideMinicart (event) {
+      if (event === 'hide') {
+        this.classSlider = 'show'
       } else {
-        this.classSlider = "hide";
+        this.classSlider = 'hide'
       }
     },
-    deleteItem(index) {
-      var storedNames = JSON.parse(localStorage.getItem("cart"));
-      var name = [];
+    deleteItem (index) {
+      var storedNames = JSON.parse(localStorage.getItem('cart'))
+      var name = []
       // var name = storedNames.slice(index, 1)
       // localStorage.setItem('cart', JSON.stringify(name))
       for (var j = 0; j < storedNames.length; j++) {
         if (j !== index) {
-          name.push(storedNames[j]);
+          name.push(storedNames[j])
         }
       }
-      localStorage.removeItem("cart");
-      localStorage.setItem("cart", JSON.stringify(name));
-      this.showItem();
-      this.orderTotal = 0;
-      this.getCalc();
+      localStorage.removeItem('cart')
+      localStorage.setItem('cart', JSON.stringify(name))
+      this.showItem()
+      this.orderTotal = 0
+      this.getCalc()
     },
-    getSetting() {
-      getSettings().then((res) => {
-        this.tipTax.taxPercentage = res.data[45];
-        this.tipTax.tips = res.data[109];
-        tipTax("taxes", JSON.stringify(this.tipTax));
-      });
+    getSetting () {
+      getSettings().then(res => {
+        this.tipTax.taxPercentage = res.data[45]
+        this.tipTax.tips = res.data[109]
+        tipTax('taxes', JSON.stringify(this.tipTax))
+      })
     },
-    getCalc() {
-      this.taxes = getLocalStorage("taxes");
+    getCalc () {
+      this.taxes = getLocalStorage('taxes')
       if (this.item) {
         for (var i = 0; i < this.item.length; i++) {
           if (this.item[i].addOnTotal) {
-            this.orderTotal +=
-              parseInt(this.item[i].quantity) *
-              parseFloat(this.item[i].addOnTotal);
+            this.orderTotal += parseInt(this.item[i].quantity) * parseFloat(this.item[i].addOnTotal)
           } else {
-            this.orderTotal +=
-              parseInt(this.item[i].quantity) * parseFloat(this.item[i].price);
+            this.orderTotal += parseInt(this.item[i].quantity) * parseFloat(this.item[i].price)
           }
         }
       }
-      this.taxTotal =
-        (parseFloat(this.orderTotal) *
-          parseInt(this.taxes.taxPercentage.value)) /
-        100;
-      this.totalAmount =
-        parseFloat(this.orderTotal) + parseFloat(this.taxTotal);
-    },
-  },
-};
+      this.taxTotal = parseFloat(this.orderTotal) * parseInt(this.taxes.taxPercentage.value) / 100
+      this.totalAmount = parseFloat(this.orderTotal) + parseFloat(this.taxTotal)
+    }
+  }
+}
 </script>
 
 <style>
-#header .module-logo {
-  position: absolute;
-  top: 0 !important;
-  right: 0px;
-  text-align: left;
-  padding: 3rem 3rem !important;
-}
-
-#header .module-logo img {
-  max-width: 71px;
-}
-
 input#mce-EMAIL {
-  background: transparent;
-  padding: 22px;
-  border: 1px solid #ffff;
-  background: white !important;
+    background: transparent;
+    padding: 22px;
+    border: 1px solid #ffff;
+    background: white !important;
 }
 
-.page-title {
-  position: relative !important;
-  padding: 0rem 0 0rem !important;
+.linknavbar{
+  color: #ffff;
 }
-#header .module-logo {
-  right: 0px;
-  padding: 0rem 0rem !important;
-  width: 0px;
+#header.dark {
+    background-color: #282b2e;
+    height: 110px;
 }
-.main-logo {
-  height: 96px;
-  padding-top: 3px;
-  margin-left: 50%;
+@media screen and (max-width: 430px) {
+ .linknavbar {
+    color: black !important;
+}
 }
 </style>

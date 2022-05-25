@@ -522,12 +522,7 @@ img {
 }
 
 #header .module-logo {
-    position: absolute;
-    top: 0;
-    left: 15px;
-    right: 15px;
-    text-align: center;
-    padding: 5rem 2rem
+    width: 100%;
 }
 
 @media (max-width:1500px) {
@@ -545,7 +540,7 @@ img {
 }
 
 #header .module-logo img {
-    max-width: 170px !important;
+    max-width: 107px !important;
 }
 
 #header .module-logo-horizontal {

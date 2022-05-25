@@ -322,9 +322,4 @@ a.btn.btn-link {
 a.btn.btn-link {
   bottom: 15px !important;
 }
-.menu-category .menu-category-title {
-    position: relative !important;
-    height: 0 !important;
-    min-height: 165px !important;
-}
 </style>

@@ -358,36 +358,36 @@
   </div>
 </template>
 <script>
-import { getLocalStorage } from "@/store/service";
+import { getLocalStorage } from '@/store/service'
 export default {
-  props: ["newCart"],
-  data() {
+  props: ['newCart'],
+  data () {
     return {
-      item: [],
-    };
+      item: []
+    }
   },
   watch: {
-    newCart() {
+    newCart () {
       if (this.newCart) {
-        this.item = this.newCart;
+        this.item = this.newCart
       }
-    },
+    }
   },
-  mounted() {
-    this.showItem();
+  mounted () {
+    this.showItem()
   },
   methods: {
-    showItem() {
-      this.user = getLocalStorage("userData");
-      this.item = getLocalStorage("cart");
+    showItem () {
+      this.user = getLocalStorage('userData')
+      this.item = getLocalStorage('cart')
     },
-    openCart() {
+    openCart () {
       if (this.item.length > 0) {
-        this.$router.push("/checkout");
+        this.$router.push('/checkout')
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 <style>
 .footer_cart {

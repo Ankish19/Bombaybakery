@@ -89,15 +89,15 @@
   </div>
 </template>
 <script>
-import Headbar from "@/views/layouts/Headbar.vue";
-import Footer from "@/views/layouts/Footer.vue";
+import Headbar from '@/views/layouts/Headbar.vue'
+import Footer from '@/views/layouts/Footer.vue'
 
 export default {
   methods: {},
-  name: "About",
+  name: 'About',
   components: {
     Headbar,
-    Footer,
-  },
-};
+    Footer
+  }
+}
 </script>

@@ -33,3 +33,15 @@
   margin-top: 57px;
 }
 </style>
+
+<style scoped>
+.mt-6 {
+  margin-top: 0px !important;
+}
+@media screen and (min-width: 414px) {
+.text-center {
+    text-align: center !important;
+    margin-top: 15% !important;
+}
+}
+</style>
