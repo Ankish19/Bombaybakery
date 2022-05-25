@@ -7,7 +7,7 @@
       <div class="page-title bg-light">
         <div class="container">
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 text-center">
               <h1 class="mb-0">OTP Verify</h1>
               <h4 class="text-muted mb-0">
                 Some information about our restaurant
@@ -22,7 +22,7 @@
         <b-container>
             <b-form @submit.prevent="verOtp">
             <b-row>
-              <b-col cols="12"  md="6" class="mx-auto">
+              <b-col cols="12"  md="6" class="mx-auto text-center">
                 <h4>Verification send on your email</h4>
                 <b-col cols="12">
                   <b-form-group>

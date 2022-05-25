@@ -568,13 +568,16 @@ export default {
       }
       service.getDistanceMatrix(request).then((response) => {
       // put response
+        console.log(response)
         if (response.rows[0].elements[0].distance) {
           // console.log(this.storeInfo.delivery_radius)
           this.submitOrder.dis = parseFloat(response.rows[0].elements[0].distance.text.split(' ')[0].replace(',', ''))
           this.jDelivery_charges_calculate(parseFloat(response.rows[0].elements[0].distance.text.split(' ')[0].replace(',', '')))
+          console.log(0)
         } else {
           this.radiusError = 'Kindly select another address'
           this.delivery_amount = 0
+          console.log(1)
         }
       })
     },
@@ -657,6 +660,7 @@ export default {
           console.log(res.data)
           window.location.href = res.data.href
         }).catch(err => {
+          this.$toast.error('Some error occurred.')
           console.log(err)
         })
       }
