@@ -8,7 +8,7 @@
           <div class="col-lg-12">
             <h1 class="mb-0">My Wallet</h1>
             <h4 class="text-muted mb-0">
-              Some information about our restaurant
+              Some informations about our restaurant
             </h4>
           </div>
         </div>
@@ -62,17 +62,17 @@
                 My Wallet
               </h4>
               <div class="row mb-5">
-                    <div class="card-bottom pt-3 px-3 mb-2 w-80">
+                    <div class="card-bottom pt-3 px-3 mb-2">
                       <div class="d-flex flex-row justify-content-between text-align-center">
                           <div class="d-flex flex-column"><span>Balance amount</span>
-                              <p><i class="fa fa-usd" aria-hidden="true"></i> <span class="text-white" v-if="wallet">{{ wallet.balance.toFixed('2') }}</span></p>
+                              <p><i class="fa fa-usd" aria-hidden="true"></i> <span class="text-white">88,989</span></p>
                           </div> <button class="btn btn-secondary"><i class="fa fa-sign-in" aria-hidden="true"></i></button>
                       </div>
-                      <div class="col-md-12"><img src="@/assets/logo.png" alt="logo" width="50px" class="card-img"></div>
-                      <!-- <div class="col-md-12 card-text"></div> -->
+                      <div class="col-md-12"><img src="@/assets/logo.svg" alt="logo" width="80px" class="card-img"></div>
+                      <div class="col-md-12 card-text">XXXX-XXXX-XXXX-7888</div>
                       <div class="row">
-                      <!-- <div class="col-md-6 card-sub"></div> -->
-                      <div class="col-md-6 card-sub">Prepaid Card By Sizzling Grill</div>
+                      <div class="col-md-6 card-sub">06 / 2025</div>
+                      <div class="col-md-6 card-sub">Prepaid Card By Bombay Chowpatty</div>
                       </div>
                   </div>
               </div>
@@ -91,7 +91,6 @@
 import Headbar from '@/views/layouts/Headbar.vue'
 import Footer from '@/views/layouts/Footer.vue'
 import SildeBar from '@/views/myaccount/SildeBar.vue'
-import { getUserWallet } from '@/store/api'
 import //   BContainer,
 //   BRow,
 //   BCol,
@@ -100,7 +99,7 @@ import //   BContainer,
 //   BFormInput
 'bootstrap-vue'
 export default {
-  name: 'Wallet',
+  created () {},
   components: {
     Headbar,
     Footer,
@@ -112,44 +111,11 @@ export default {
     // BFormGroup,
     // BFormInput
   },
-  data () {
-    return {
-      wallet: ''
-    }
-  },
-  mounted () {
-    this.getWallet()
-  },
-  methods: {
-    getWallet () {
-      const data = ''
-      getUserWallet(data).then(res => {
-        this.wallet = res.data
-        console.log(res.data)
-      })
-    }
-  }
+
+  name: 'Wallet'
 }
 </script>
 <style>
-ul.text-list li.text-link {
-  list-style: none;
-  font-size: 15px;
-  line-height: 3;
-}
-ul.text-list {
-  padding-left: 7px;
-}
-li.text-link i {
-  color: #ddae71;
-}
-a.text-left {
-  margin-left: 15px;
-}
-a.text-left.active {
-  color: #ddae71;
-  font-weight: 600 !important;
-}
 .fa-ellipsis-v {
     font-size: 10px;
     color: #C2C2C4;
@@ -207,13 +173,9 @@ a.text-left.active {
 .card-bottom.pt-3.px-3.mb-2 {
     margin: auto;
 }
-.card-img {
-    position: relative;
+.card-img{
+  position: relative;
     top: -18px;
     width: 80px;
-}
-.card-bottom.pt-3.px-3.mb-2.w-80 {
-    width: 477px;
-    height: 238px;
 }
 </style>

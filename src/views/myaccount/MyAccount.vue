@@ -1,21 +1,22 @@
+/* eslint-disable */
 <template>
   <div id="checkout">
     <Headbar></Headbar>
     <!-- Page Title -->
-    <div class="page-title">
+    <div class="page-title bg-light">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
-            <h1 class="mb-0">My Account</h1>
-            <h4 class="text-muted mb-0">
-              Some informations about our restaurant
+          <div class="col-lg-12 mt-6">
+            <h1 class="mb-0 text-center">My Account</h1>
+            <h4 class="text-muted mb-0 text-center">
+              Some information about our restaurant
             </h4>
           </div>
         </div>
       </div>
     </div>
     <!-- Section -->
-    <section class="section bg-light">
+    <section class="section bg-white">
       <div class="container text-left">
         <div class="row">
           <div class="col-xl-4 col-lg-5">
@@ -60,49 +61,82 @@
                 My Profile
               </h4>
               <div class="row mb-5">
-              <div class="col-md-12">
-                 <div class="blog-details-wrap ptb-100">
-      <div class="container">
-        <div class="row gx-5">
-          <div class="col-lg-12 order-xl-2 order-lg-1 order-md-1 order-1">
-            <div class="card mb-4">
-              <div class="card-body text-center">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                  alt="avatar"
-                  class="rounded-circle img-fluid"
-                  style="width: 150px"
-                />
-                <h5 class="my-3 profile">{{ user?user.name:'' }}</h5>
-                <p class="text-muted mb-2">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i> {{ user.default_address?user.default_address.address:'' }}
-                </p>
-                <p class="text-muted mb-2">
-                  <a href="tel:4434567890"><i class="fa fa-phone" aria-hidden="true"></i> {{ user?user.phone:'' }}</a>
-                </p>
-                <p class="text-muted mb-4">
-                  <a href="mailto:User@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ user?user.email:'' }}</a>
-                </p>
-                <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
+                  <div class="">
+                    <div class="container">
+                      <div class="row gx-5">
+                        <div class="col-lg-12">
+                          <div class="card mb-4">
+                            <div class="card-body text-center">
+                              <img
+                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                alt="avatar"
+                                class="rounded-circle img-fluid"
+                                style="width: 150px"
+                              />
+                              <h5 class="my-3 profile">
+                                {{ user ? user.name : "" }}
+                              </h5>
+                              <p class="text-muted mb-2">
+                                <i
+                                  class="fa fa-map-marker"
+                                  aria-hidden="true"
+                                ></i>
+                                {{
+                                  user.default_address
+                                    ? user.default_address.address
+                                    : ""
+                                }}
+                              </p>
+                              <p class="text-muted mb-2">
+                                <a href="#"
+                                  ><i
+                                    class="fa fa-phone"
+                                    aria-hidden="true"
+                                  ></i>
+                                  {{ user ? user.phone : "" }}</a
+                                >
+                              </p>
+                              <p class="text-muted mb-4">
+                                <a href="#"
+                                  ><i
+                                    class="fa fa-envelope-o"
+                                    aria-hidden="true"
+                                  ></i>
+                                  {{ user ? user.email : "" }}</a
+                                >
+                              </p>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div
+                                    class="d-flex justify-content-center mb-2"
+                                  >
+                                    <router-link
+                                      to="/updateprofile"
+                                      class="btn btn-primary w-20"
+                                      ><span
+                                        ><i
+                                          class="fa fa-pencil"
+                                          aria-hidden="true"
+                                        ></i>
+                                        Update</span
+                                      ></router-link
+                                    >
+                                  </div>
+                                </div>
+                                <!-- <div class="col-md-6">
                     <div class="d-flex justify-content-center mb-2">
-                    <router-link to="/login" class="btn btn-primary w-100"><span><i class="fa fa-pencil" aria-hidden="true"></i>  Update</span></router-link>
+                      <router-link to="/login" class="btn btn-danger w-100"><span><i class="fa fa-pencil" aria-hidden="true"></i>  Password Changes</span></router-link>
+                    </div>
+                  </div> -->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                </div>
-                <div class="col-md-6">
-                 <div class="d-flex justify-content-center mb-2">
-                  <router-link to="/login" class="btn btn-danger w-100"><span><i class="fa fa-pencil" aria-hidden="true"></i>  Password Changes</span></router-link>
-                </div>
-                </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-              </div>
                 <!-- /.col-lg-6 -->
               </div>
             </div>
@@ -115,22 +149,23 @@
   </div>
 </template>
 <script>
-import Headbar from '@/views/layouts/Headbar.vue'
-import Footer from '@/views/layouts/Footer.vue'
-import SildeBar from '@/views/myaccount/SildeBar.vue'
-import { getLocalStorage } from '@/store/service'
-import //   BContainer,
-//   BRow,
-//   BCol,
-//   BForm,
-//   BFormGroup,
-//   BFormInput
-'bootstrap-vue'
+/* eslint-disable */
+import Headbar from "@/views/layouts/Headbar.vue";
+import Footer from "@/views/layouts/Footer.vue";
+import SildeBar from "@/views/myaccount/SildeBar.vue";
+import { getLocalStorage } from "@/store/service";
+// import //   BContainer,
+// //   BRow,
+// //   BCol,
+// //   BForm,
+// //   BFormGroup,
+// //   BFormInput
+// 'bootstrap-vue'
 export default {
   components: {
     Headbar,
     Footer,
-    SildeBar
+    SildeBar,
     // BContainer,
     // BRow,
     // BCol,
@@ -138,21 +173,26 @@ export default {
     // BFormGroup,
     // BFormInput
   },
-  data () {
+  data() {
     return {
-      user: []
-    }
+      user: [],
+    };
   },
-  mounted () {
-    this.userData()
+  mounted() {
+    this.userData();
   },
   methods: {
-    userData () {
-      this.user = getLocalStorage('userData')
-    }
+    userData() {
+      this.user = getLocalStorage("userData");
+      if (typeof this.user.role !== "undefined") {
+        if (this.user.role === "table") {
+          this.$router.push("/myorder");
+        }
+      }
+    },
   },
-  name: 'checkout'
-}
+  name: "MyAccount",
+};
 </script>
 <style>
 ul.text-list li.text-link {
@@ -174,31 +214,20 @@ a.text-left.active {
   font-weight: 600 !important;
 }
 .heading-text {
-    font-size: 18px;
-    font-weight: 700;
-    margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 8px;
 }
-.profile{
-    font-weight: 700;
-    color: #ddae71;
-    font-family: 'Raleway';
+.profile {
+  font-weight: 700;
+  color: #ddae71;
+  font-family: "Raleway";
 }
-</style>
-<style>
-h1.mb-0 {
-    color: #383c40;
-    font-family: Helvetica Neue, Raleway, sans-serif;
+.card {
+  width: 100% !important;
+  background: #f06292;
+  border-radius: 15px;
+  border: none;
+  margin-top: 5% !important;
 }
-.page-title h1 {
-    font-size: 77px;
-    font-size: 5.5rem;
-}
-.mb-0, .my-0 {
-    margin-bottom: 0 !important;
-}
-.text-muted {
-    color:#a4a7a9 !important;
-    font-family: Helvetica Neue, Raleway, sans-serif;
-}
-
 </style>

@@ -349,56 +349,58 @@
     </nav>
     <div class="footer_cart" @click="openCart()">
       <div class="footer_cart_icon">
-        <span class="notification d-block" v-if="item">{{ item?item.length:0 }}</span>
-          <i class="ti ti-shopping-cart"></i>
+        <span class="notification d-block" v-if="item">{{
+          item ? item.length : 0
+        }}</span>
+        <i class="ti ti-shopping-cart"></i>
       </div>
-  </div>
+    </div>
   </div>
 </template>
 <script>
-import { getLocalStorage } from '@/store/service'
+import { getLocalStorage } from "@/store/service";
 export default {
-  props: ['newCart'],
-  data () {
+  props: ["newCart"],
+  data() {
     return {
-      item: []
-    }
+      item: [],
+    };
   },
   watch: {
-    newCart () {
+    newCart() {
       if (this.newCart) {
-        this.item = this.newCart
+        this.item = this.newCart;
       }
-    }
+    },
   },
-  mounted () {
-    this.showItem()
+  mounted() {
+    this.showItem();
   },
   methods: {
-    showItem () {
-      this.user = getLocalStorage('userData')
-      this.item = getLocalStorage('cart')
+    showItem() {
+      this.user = getLocalStorage("userData");
+      this.item = getLocalStorage("cart");
     },
-    openCart () {
+    openCart() {
       if (this.item.length > 0) {
-        this.$router.push('/checkout')
+        this.$router.push("/checkout");
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style>
 .footer_cart {
   position: fixed;
-    bottom: 40px;
-    right: 40px;
-    padding: 10px 17px;
-    border: 2px solid #e26f2f;
-    border-radius: 50px;
-    background: #606467;
-    cursor: pointer;
+  bottom: 40px;
+  right: 40px;
+  padding: 10px 17px;
+  border: 2px solid #e26f2f;
+  border-radius: 50px;
+  background: #606467;
+  cursor: pointer;
 }
-.footer_cart_icon{
+.footer_cart_icon {
   color: #fff;
   font-size: 20px;
 }
