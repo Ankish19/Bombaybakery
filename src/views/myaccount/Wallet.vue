@@ -72,7 +72,7 @@
                       <!-- <div class="col-md-12 card-text"></div> -->
                       <div class="row">
                       <!-- <div class="col-md-6 card-sub"></div> -->
-                      <div class="col-md-6 card-sub">Prepaid Card By Sizzling Grill</div>
+                      <div class="col-md-6 card-sub">Prepaid Card By Bombay Bakery</div>
                       </div>
                   </div>
               </div>
