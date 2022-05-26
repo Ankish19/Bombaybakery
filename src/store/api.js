@@ -110,7 +110,7 @@ export const CardToken = (data) => {
       Accept: 'application/json',
       'Access-Control-Allow-Origin': '*',
       Authorization: 'Bearer cd613180-d0e4-04bf-0b0f-4937f5bfc5cd',
-      'X-Clover-Merchant-ID': '87841b31205912071ee39b428748c2dc'
+      'X-Clover-Merchant-ID': 'HH3T4RT4ZKWA1'
     }
   })
 }
