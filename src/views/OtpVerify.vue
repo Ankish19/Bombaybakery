@@ -104,6 +104,7 @@ export default {
   methods: {
     verOtp () {
       verifyOtp(this.form).then(res => {
+        console.log(res.data)
         if (res.data.valid_otp === true) {
           saveLocalStorage('userDataVerify', 'true')
           const userData = getLocalStorage('userData')
@@ -117,6 +118,7 @@ export default {
     },
     resend_otp () {
       resendVerifyOtp(this.form).then(res => {
+        console.log(res.data)
         this.$toast.success('Send resend otp successfully')
       })
     },

@@ -24,9 +24,6 @@
             <b-row>
               <b-col cols="12"  md="6" class="mx-auto">
                 <b-col cols="12">
-                  <h2 class="font-weight-bold">Register Form</h2>
-                </b-col>
-                <b-col cols="12">
                   <b-form-group>
                     <b-form-input
                       v-model="form.name"
@@ -109,8 +106,8 @@
 <script>
 import Headbar from '@/views/layouts/Headbar.vue'
 import Footer from '@/views/layouts/Footer.vue'
-import { register } from '@/store/api'
-import { saveLocalStorage, storeSlug } from '@/store/service'
+import { register, storeSlug } from '@/store/api'
+import { saveLocalStorage } from '@/store/service'
 import {
   BForm,
   BFormGroup,
