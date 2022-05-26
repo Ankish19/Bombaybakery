@@ -110,7 +110,7 @@
 import Headbar from '@/views/layouts/Headbar.vue'
 import Footer from '@/views/layouts/Footer.vue'
 import { register } from '@/store/api'
-import { saveLocalStorage } from '@/store/service'
+import { saveLocalStorage, storeSlug } from '@/store/service'
 import {
   BForm,
   BFormGroup,
@@ -128,7 +128,8 @@ export default {
         name: '',
         email: '',
         phone: '',
-        password: ''
+        password: '',
+        storeSlug: storeSlug
       },
       err: '',
       error: {
