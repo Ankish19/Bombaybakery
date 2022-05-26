@@ -31,18 +31,6 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>-->
-      <div
-        class="module module-nav-toggle mobile-menu"
-        id="nav-toggle"
-        data-toggle="collapse"
-        data-target="#collapsable-nav"
-        aria-expanded="false"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
       <!-- Page Content -->
       <div class="page-content">
         <div class="container">
