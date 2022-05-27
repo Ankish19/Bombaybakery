@@ -26,13 +26,13 @@
                   <router-link to="/">Menu</router-link>
                 </li>
                 <li class="has-dropdown text-left mr-3 hidden-md">
-                  <router-link class="" to="/login" v-if="!user">
+                  <router-link class="" to="/login" v-if="!user || user && userVerify == false">
                     <span class="order">Login</span></router-link
                   >
                   <router-link
-                    class=""
-                    to="/myaccount"
-                    v-if="user || userVerify === true"
+                    class="btn btn-outline-light"
+                    to="/myAccount"
+                    v-if="user && userVerify == true"
                   >
                     <span class="order">My Account</span></router-link
                   >
@@ -46,14 +46,14 @@
               <router-link
                 class="btn btn-outline-light"
                 to="/login"
-                v-if="!user"
+                v-if="!user || user && userVerify == false"
               >
                 <span class="order">Login</span></router-link
               >
               <router-link
                 class="btn btn-outline-light"
-                to="/myaccount"
-                v-if="user || userVerify === true"
+                to="/myAccount"
+                v-if="user && userVerify == true"
               >
                 <span class="order">My Account</span></router-link
               >

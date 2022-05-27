@@ -68,7 +68,7 @@
 import Headbar from '@/views/layouts/Headbar.vue'
 import Footer from '@/views/layouts/Footer.vue'
 import { getLocalStorage, saveLocalStorage } from '@/store/service'
-import { verifyOtp, resendVerifyOtp } from '@/store/api'
+import { verifyOtp, resendVerifyOtp, storeSlug } from '@/store/api'
 import {
   BForm,
   BFormGroup,
@@ -96,13 +96,15 @@ export default {
       form: {
         email: getLocalStorage('userData').email,
         phone: getLocalStorage('userData').phone,
-        otp: ''
+        otp: '',
+        storeSlug: storeSlug
       }
     }
   },
   methods: {
     verOtp () {
       verifyOtp(this.form).then(res => {
+        console.log(res.data)
         if (res.data.valid_otp === true) {
           saveLocalStorage('userDataVerify', 'true')
           const userData = getLocalStorage('userData')
@@ -116,6 +118,7 @@ export default {
     },
     resend_otp () {
       resendVerifyOtp(this.form).then(res => {
+        console.log(res.data)
         this.$toast.success('Send resend otp successfully')
       })
     },

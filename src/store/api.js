@@ -2,7 +2,7 @@ import axios from 'axios'
 import { apiHeaders } from './service'
 
 const apiUrl = 'https://admin.bombaychowpatty.ca/public/api/'
-const storeSlug = 'bombay-bakery-ckt9gdnjguxfqdu'
+export const storeSlug = 'bombay-bakery-ckt9gdnjguxfqdu'
 // const storeID = '2'
 
 export const getMenu = () => {
