@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12  text-center">
-            <h1 class="mb-0">Orders Details</h1>
+            <h1 class="mb-0">Order Details</h1>
             <h4 class="text-muted mb-0">
               Some information about our restaurant
             </h4>
@@ -129,6 +129,9 @@
                       </tbody>
                   </table>
                  </div>
+                 <div class="col-md-12 mt-5 text-center">
+                    <a href="tel:+1-403-474-5878" class="btn-input"><i class="fa fa-phone"></i>&nbsp;Cancel Order</a>
+                 </div>
               </div>
             </div>
           </div>
@@ -143,13 +146,13 @@
 import Headbar from '@/views/layouts/Headbar.vue'
 import Footer from '@/views/layouts/Footer.vue'
 import SildeBar from '@/views/myaccount/SildeBar.vue'
-import //   BContainer,
-//   BRow,
-//   BCol,
-//   BForm,
-//   BFormGroup,
-//   BFormInput
-'bootstrap-vue'
+// import //   BContainer,
+// //   BRow,
+// //   BCol,
+// //   BForm,
+// //   BFormGroup,
+// //   BFormInput
+// 'bootstrap-vue'
 import { getOrderDetail } from '../../store/api'
 export default {
   created () {},
@@ -198,6 +201,11 @@ export default {
 }
 </script>
 <style>
+a.btn-input {
+    background: #bc0815;
+    padding: 10px;
+    color: white;
+}
 ul.text-list li.text-link {
   list-style: none;
   font-size: 15px;
@@ -421,5 +429,8 @@ margin-right:20px;
     font-family: 'FontAwesome';
     font-weight: 100;
     content: "\f0f5 ";
+}
+.page-title {
+    height: 250px;
 }
 </style>
