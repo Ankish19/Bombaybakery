@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <Headbar></Headbar>
-    <section class="section section-main section-main-2 bg-dark dark">
+    <!-- <section class="section section-main section-main-2 bg-dark dark">
       <div id="section-main-2-slider" class="section-slider inner-controls">
-        <!-- Slide -->
+      
         <div class="slide">
           <div class="bg-image zooming">
             <img
@@ -19,7 +19,7 @@
               </router-link>
           </div>
         </div>
-        <!-- Slide -->
+      
         <div class="slide">
           <div class="bg-image zooming">
             <img
@@ -35,7 +35,7 @@
               </router-link>
           </div>
         </div>
-        <!-- Slide -->
+       
         <div class="slide">
           <div class="bg-image zooming">
             <img
@@ -55,7 +55,7 @@
         </div>
       </div>
     </section>
-    <!-- Section - About -->
+    
     <section class="section section-bg-edge">
       <div class="image right col-md-6 offset-md-6">
         <div class="bg-image">
@@ -78,7 +78,7 @@
             Tandoori Nights reimagine the wonders of Canadian fare in a space that evokes a bygone era of a boisterous yet
             elegant Canada—all within the heart of Calgary City.
           </p>
-          <!-- Feature -->
+        
           <div class="feature feature-1">
             <div class="feature-icon icon icon-primary">
               <i class="ti ti-desktop"></i>
@@ -91,7 +91,7 @@
               </p>
             </div>
           </div>
-          <!-- Feature -->
+        
           <div class="feature feature-1">
             <div class="feature-icon icon icon-primary">
               <i class="ti ti-heart"></i>
@@ -108,7 +108,7 @@
       </div>
     </section>
 
-    <!-- Section - Menu -->
+   
     <section class="section cover protrude pull-up-10">
       <div
         class="menu-sample-carousel carousel inner-controls"
@@ -135,7 +135,7 @@
                 ]
             }'
       >
-        <!-- Menu Sample -->
+      
         <div class="menu-sample slider-img">
           <a href="#">
             <img
@@ -146,7 +146,7 @@
             <h3 class="title">Non-Veg</h3>
           </a>
         </div>
-        <!-- Menu Sample -->
+    
         <div class="menu-sample slider-img">
           <a href="#">
             <img
@@ -157,7 +157,7 @@
             <h3 class="title">Veg Appetizers</h3>
           </a>
         </div>
-        <!-- Menu Sample -->
+       
         <div class="menu-sample slider-img">
           <a href="#">
             <img
@@ -168,7 +168,7 @@
             <h3 class="title">Veg Main</h3>
           </a>
         </div>
-        <!-- Menu Sample -->
+    
         <div class="menu-sample slider-img">
           <a href="#">
             <img
@@ -179,7 +179,7 @@
             <h3 class="title">Breads</h3>
           </a>
         </div>
-        <!-- Menu Sample -->
+       
         <div class="menu-sample slider-img">
           <a href="#">
             <img
@@ -190,7 +190,7 @@
             <h3 class="title">Beverages</h3>
           </a>
         </div>
-        <!-- Menu Sample -->
+      
         <div class="menu-sample slider-img">
           <a href="#">
             <img
@@ -201,7 +201,7 @@
             <h3 class="title">Kids</h3>
           </a>
         </div>
-        <!-- Menu Sample -->
+       
         <div class="menu-sample slider-img">
           <a href="#">
             <img
@@ -212,7 +212,7 @@
             <h3 class="title">Rice</h3>
           </a>
         </div>
-        <!-- Menu Sample -->
+      
         <div class="menu-sample slider-img">
           <a href="#">
             <img
@@ -223,7 +223,7 @@
             <h3 class="title">Sides</h3>
           </a>
         </div>
-         <!-- Menu Sample -->
+       
         <div class="menu-sample slider-img">
           <a href="#">
             <img
@@ -236,12 +236,12 @@
         </div>
       </div>
     </section>
-    <!-- Section - Steps -->
+ 
     <section class="section bg-dark dark">
       <div class="container text">
         <div class="row text-left">
           <div class="col-md-4">
-            <!-- Step -->
+           
             <div class="feature feature-1">
               <div class="feature-icon icon icon-primary">
                 <i class="ti ti-shopping-cart"></i>
@@ -257,7 +257,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <!-- Step -->
+          
             <div class="feature feature-1">
               <div class="feature-icon icon icon-primary">
                 <i class="ti ti-wallet"></i>
@@ -271,7 +271,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <!-- Step -->
+        
             <div class="feature feature-1">
               <div class="feature-icon icon icon-primary">
                 <i class="ti ti-package"></i>
@@ -289,7 +289,7 @@
         </div>
       </div>
     </section>
-     <!-- Section - About -->
+   
         <section class="section section-bg-edge ">
 
             <div class="image right col-md-6 offset-md-6">
@@ -301,7 +301,7 @@
                     <div class="rate mb-5 rate-lg"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
                     <h1>The best food in Calgary!</h1>
                     <div class="blockquotes">
-                        <!-- Blockquote -->
+                        
                         <blockquote class="blockquote light animated" data-animation="fadeInLeft">
                             <div class="blockquote-content">
                                 <div class="rate rate-sm mb-3"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
@@ -312,7 +312,7 @@
                                 <span class="name">Mark Johnson<span class="text-muted">, Google</span></span>
                             </footer>
                         </blockquote>
-                        <!-- Blockquote -->
+                       
                         <blockquote class="blockquote animated" data-animation="fadeInRight" data-animation-delay="300">
                             <div class="blockquote-content dark">
                                 <div class="rate rate-sm mb-3"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
@@ -327,7 +327,7 @@
                 </div>
             </div>
 
-        </section>
+        </section> -->
 
     <Footer></Footer>
   </div>
@@ -335,19 +335,19 @@
 
 <script>
 // @ is an alias to /src
-import Headbar from '@/views/layouts/Headbar.vue'
-import Footer from '@/views/layouts/Footer.vue'
+import Headbar from "@/views/layouts/Headbar.vue";
+import Footer from "@/views/layouts/Footer.vue";
 export default {
   props: {},
-  name: 'Home',
+  name: "Home",
   components: {
     Headbar,
-    Footer
+    Footer,
   },
-  data () {
-    return {}
-  }
-}
+  data() {
+    return {};
+  },
+};
 </script>
 <style>
 h1.mb-0 {
@@ -460,9 +460,9 @@ a.panel-cart-action.btn.btn-secondary.btn-block.btn-lg {
   padding: 22px;
   background: #343a40;
 }
-.text-heading{
-    color: #ddae71;
-    font-weight: 800;
-    font-size: 23px;
+.text-heading {
+  color: #ddae71;
+  font-weight: 800;
+  font-size: 23px;
 }
 </style>
