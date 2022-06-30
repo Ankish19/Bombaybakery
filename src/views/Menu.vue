@@ -57,6 +57,7 @@
               <MenuComp
                 :items="Items"
                 v-on:addItem="addItem($event)"
+                :resInfo="resInfo"
               ></MenuComp>
             </div>
           </div>
@@ -76,7 +77,7 @@
 /* eslint-disable */
 import Headbar from "@/views/layouts/Headbar.vue";
 import Footer from "@/views/layouts/Footer.vue";
-import { getMenu } from "@/store/api";
+import { getMenu, getRestaurantInfo } from "@/store/api";
 import MenuComp from "@/views/layouts/MenuComp.vue";
 export default {
   props: {},
@@ -91,9 +92,11 @@ export default {
       Items: [],
       newCart: [],
       cartshow: false,
+      resInfo: ''
     };
   },
   mounted() {
+    this.getResInfo()
     // eslint-disable-next-line no-unused-expressions
     getMenu().then((res) => {
       // console.log(res.data['items']['Fast food'])
@@ -114,6 +117,11 @@ export default {
     });
   },
   methods: {
+    getResInfo () {
+      getRestaurantInfo().then((res) => {
+        this.resInfo = res.data
+      })
+    },
     addItem(event) {
       this.newCart = event;
     },

@@ -110,6 +110,7 @@ export default {
   name: "Editcart",
   data() {
     return {
+      showButton: null,
       add_quantity: [],
       deliveryCharges: 0,
       tipBox: 0,
@@ -175,8 +176,37 @@ export default {
     };
   },
   mounted() {
+    this.user = getLocalStorage('userData')
     getRestaurantInfo().then((res) => {
       this.storeInfo = res.data;
+      if (!this.user) {
+        if (this.storeInfo.open === 1) {
+          this.showButton = true
+        } else {
+          this.showButton = false
+        }
+      } else {
+        if (this.user && !this.user.role) {
+          console.log('user')
+          if (this.storeInfo.open === 1) {
+            this.showButton = true
+          } else {
+            this.showButton = false
+          }
+        } else {
+          if (this.storeInfo.table_order_open === 1) {
+            this.showButton = true
+          } else {
+            this.showButton = false
+          }
+        }
+        if (this.showButton === false) {
+          this.$toast.error('Restaurant is now closed.', {
+            timeout: 1500
+          })
+          this.$router.push('/')
+        }
+      }
     });
     this.checkCart();
   },

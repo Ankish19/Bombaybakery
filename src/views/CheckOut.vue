@@ -395,6 +395,8 @@ export default {
   name: 'checkout',
   data () {
     return {
+      showButton: null,
+      user: [],
       storeInfo: '',
       radiusError: '',
       addresses: [],
@@ -472,17 +474,54 @@ export default {
     }
   },
   mounted () {
+    this.user = getLocalStorage('userData')
     this.getResInfo()
     this.checkCart()
     const data = ''
     getUserWallet(data).then(res => {
       this.wallet = res.data
     })
+    this.getTableOrderInfo()
   },
   methods: {
+    getTableOrderInfo () {
+      if (getLocalStorage('tableOrder')) {
+        this.form.tableOrder.name = getLocalStorage('tableOrder').name
+        this.form.tableOrder.phone = getLocalStorage('tableOrder').phone
+        this.form.tableOrder.person = getLocalStorage('tableOrder').person
+      }
+    },
     getResInfo () {
       getRestaurantInfo().then(res => {
         this.storeInfo = res.data
+        if (!this.user) {
+          if (this.storeInfo.open === 1) {
+            this.showButton = true
+          } else {
+            this.showButton = false
+          }
+        } else {
+          if (this.user && !this.user.role) {
+            console.log('user')
+            if (this.storeInfo.open === 1) {
+              this.showButton = true
+            } else {
+              this.showButton = false
+            }
+          } else {
+            if (this.storeInfo.table_order_open === 1) {
+              this.showButton = true
+            } else {
+              this.showButton = false
+            }
+          }
+          if (this.showButton === false) {
+            this.$toast.error('Restaurant is now closed.', {
+              timeout: 1500
+            })
+            this.$router.push('/')
+          }
+        }
         if (this.storeInfo && this.storeInfo.is_tabletop === 1 && this.submitOrder.user.data.role === 'table') {
           this.submitOrder.delivery_type = 3
           var address = {
@@ -623,6 +662,8 @@ export default {
         this.tableOrder.error = '*All Fields are required.'
       } else {
         saveLocalStorage('submitOrder', JSON.stringify(this.submitOrder))
+        localStorage.removeItem('tableOrder')
+        saveLocalStorage('tableOrder', JSON.stringify(this.form.tableOrder))
         // const card = {
         //   ecomind: 'ecom',
         //   amount: '3000',
@@ -801,13 +842,16 @@ export default {
       }
     },
     placeOrder () {
-      this.orderNow = 0
+      this.tableOrder.error = ''
       if (this.submitOrder.delivery_type === 3) {
         this.submitOrder.order_comment = `Name: ${this.form.tableOrder.name}, Phone: ${this.form.tableOrder.phone}, Number of person: ${this.form.tableOrder.person}`
       }
       if (this.submitOrder.user.data.role === 'table' && (!this.form.tableOrder.name || !this.form.tableOrder.phone || !this.form.tableOrder.person)) {
         this.tableOrder.error = '*All Fields are required.'
       } else {
+        this.orderNow = 0
+        localStorage.removeItem('tableOrder')
+        saveLocalStorage('tableOrder', JSON.stringify(this.form.tableOrder))
         placeOrder(this.submitOrder).then(res => {
           if (res.data.success === true) {
             localStorage.removeItem('cart')
